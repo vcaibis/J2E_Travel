@@ -1,0 +1,49 @@
+package ch.hevs.businessobject;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+public class User {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private long id;
+	private String lastname;
+	private String firstname;
+
+	//Address
+	@Embedded
+	private Address address;
+
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	// constructors
+	public User() {
+	}
+
+	public User(String firstname, String lastname) {
+		this.lastname = lastname;
+		this.firstname = firstname;
+	}
+
+	@Override
+	public String toString() {
+		String result = id + "-" + lastname + "-" + firstname;
+		return result;
+	}
+}
