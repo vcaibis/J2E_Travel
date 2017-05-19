@@ -7,7 +7,7 @@ import javax.ejb.Local;
 import ch.hevs.businessobject.Client;
 import ch.hevs.businessobject.Account;
 
-//jwsjbij
+//coucou xavier
 @Local
 public interface Bank {
 
